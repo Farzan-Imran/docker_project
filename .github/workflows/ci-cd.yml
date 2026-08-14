@@ -3,7 +3,7 @@ name: CI-CD project
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
 
