@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: backend
+  namespace: to-do-app
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: backend
+
+  template:
+    metadata:
+      labels:
+        app: backend
+  
+    spec:
+      containers:
+        -  name: backend
+           image: farzaan548/to-do-backend:latest
+           imagePullPolicy: IfNotPresent
+    
+           ports:
+            - containerPort: 5000
+
+      
