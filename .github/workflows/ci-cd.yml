@@ -57,6 +57,6 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: | 
             whoami
-            uname -m
+            uname 
             kubectl get nodes
 
