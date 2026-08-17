@@ -49,7 +49,7 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/to-do-backend:${{ github.sha }}
       
 
-      - name: Deploy to EC2
+      - name: Setup to EC2
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.EC2_HOST }}
