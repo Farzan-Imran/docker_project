@@ -63,10 +63,10 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             kubectl set image deployment/frontend \
-              frontend=${{ secrets.DOCKERHUB_USERNAME }}/to-do-frontend:${{ github.sha }}
-
+              frontend=${{ secrets.DOCKERHUB_USERNAME }}/to-do-frontend:${{ github.sha }} -n to-do-app
+          
             kubectl set image deployment/backend \
-              backend=${{ secrets.DOCKERHUB_USERNAME }}/to-do-backend:${{ github.sha }}
+              backend=${{ secrets.DOCKERHUB_USERNAME }}/to-do-backend:${{ github.sha }} -n to-do-app
 
               kubectl rollout status deployment/frontend
               kubectl rollout status deployment/backend
