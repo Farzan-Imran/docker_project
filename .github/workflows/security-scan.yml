@@ -16,14 +16,17 @@ jobs:
   gitleaks:
     name: gitleaks secret scan
     runs-on: ubuntu-latest
-
-    - name: Checkout Repository
-      uses: checkout/action@v2
-      with:
-        fetch-depth: 0
+    
+    steps:
 
 
-    - name: Gitleaks secret scan
-      uses: gitleaks/gitleaks-action@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       - name: Checkout Repository
+         uses: checkout/action@v2
+         with:
+           fetch-depth: 0
+
+
+       - name: Gitleaks secret scan
+         uses: gitleaks/gitleaks-action@v2
+         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
