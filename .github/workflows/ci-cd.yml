@@ -97,15 +97,16 @@ jobs:
             echo "Deploying application using helm"
 
             helm upgrade --install to-do-app \
-            --create-namespace to-do-app \
-            --namespace to-do-app \
-            --set frontend.image.repository=$DOCKERHUB_USERNAME/to-do-frontend \
-            --set frontend.image.tag=$IMAGE_TAG \ 
-            --set backend.image.repository=$DOCKERHUB_USERNAME/to-do-backend \
-            --set backend.image.tag=$IMAGE_TAG \
-            --wait \
-            --atomic \
-            --timeout 5m 
+              /home/${{ secrets.EC2_USERNAME}}/deployment/to-do-app \
+              --create-namespace to-do-test1 \
+              --namespace to-do-test1 \
+              --set frontend.image.repository=$DOCKERHUB_USERNAME/to-do-frontend \
+              --set frontend.image.tag=$IMAGE_TAG \ 
+              --set backend.image.repository=$DOCKERHUB_USERNAME/to-do-backend \
+              --set backend.image.tag=$IMAGE_TAG \
+              --wait \
+              --atomic \
+              --timeout 5m 
 
             echo "Deployment Succeeded"
 
