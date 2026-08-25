@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         -  name: backend
-           image: farzaan548/to-do-backend:latest
+           image: farzaan548/to-do-backend:
            imagePullPolicy: IfNotPresent
     
            ports:

@@ -21,3 +21,7 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+#Terrafrom hidden file
+.terraform/
+*.tfstate
+*.tfstate.*
