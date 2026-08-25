@@ -1,0 +1,44 @@
+frontend:
+  replicaCount: 1
+
+  image:
+    repository: farzaan548/to-do-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 80
+    
+
+
+backend:
+  replicaCount: 1
+
+  image:
+    repository: farzaan548/to-do-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+
+  service:
+    type: ClusterIP
+    port: 5000
+    targetPort: 5000
+
+
+mongodb:
+  replicaCount: 1
+
+  image:
+    repository: mongo
+    tag: "8.0"
+    pullPolicy: IfNotPresent
+
+  service:
+    type: ClusterIP
+    port: 27017
+    targetPort: 27017
+
+  persistence:
+    size: 5Gi
