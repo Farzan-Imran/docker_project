@@ -100,16 +100,16 @@ jobs:
             echo "Deploying application using Helm"
             echo "======================================"
 
-            helm upgrade --install to-do-app \
+            helm upgrade --install to-do1 \
               /home/ubuntu/docker_project/k8s/to-do-app \
               --create-namespace \
-              --namespace to-do-test \
+              --namespace to-do-app \
               --set frontend.image.repository=${{ secrets.DOCKERHUB_USERNAME }}/to-do-frontend \
               --set frontend.image.tag=${{ github.sha }} \
               --set backend.image.repository=${{ secrets.DOCKERHUB_USERNAME }}/to-do-backend \
               --set backend.image.tag=${{ github.sha }} \
               --wait \
-              --atomic \
+              --rollback-on-failure \
               --timeout 1m
 
 
