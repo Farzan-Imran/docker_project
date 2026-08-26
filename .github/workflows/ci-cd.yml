@@ -110,7 +110,7 @@ jobs:
               --set backend.image.tag=${{ github.sha }} \
               --wait \
               --atomic \
-              --timeout 5m
+              --timeout 1m
 
 
             echo "======================================"
