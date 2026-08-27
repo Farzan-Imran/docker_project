@@ -1,18 +1,13 @@
 apiVersion: v1
-kind: Service
-
+kind: PersistentVolumeClaim
 metadata:
-  name: mongo
+  name: mongodb-pvc
   labels:
     app: mongo
-
 spec:
-  type: {{ .Values.mongodb.service.type }}
-
-  selector:
-    app: mongo
-
-  ports:
-    - port: {{ .Values.mongodb.service.port }}
-      targetPort: {{ .Values.mongodb.service.targetPort }}
-      protocol: TCP
+  accessModes:
+    - {{ .Values.mongo.persistence.accessMode }}
+  storageClassName: {{ .Values.mongo.persistence.storageClass }}
+  resources:
+    requests:
+      storage: {{ .Values.mongo.persistence.size }}

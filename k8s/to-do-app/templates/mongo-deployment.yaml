@@ -7,7 +7,7 @@ metadata:
     app: mongo
 
 spec:
-  replicas: {{ .Values.mongodb.replicaCount }}
+  replicas: {{ .Values.mongo.replicaCount }}
 
   selector:
     matchLabels:
@@ -22,18 +22,18 @@ spec:
       containers:
         - name: mongo
 
-          image: "{{ .Values.mongodb.image.repository }}:{{ .Values.mongodb.image.tag }}"
-          imagePullPolicy: {{ .Values.mongodb.image.pullPolicy }}
+          image: "{{ .Values.mongo.image.repository }}:{{ .Values.mongo.image.tag }}"
+          imagePullPolicy: {{ .Values.mongo.image.pullPolicy }}
 
           ports:
             - containerPort: 27017
               protocol: TCP
 
           volumeMounts:
-            - name: mongodb-storage
+            - name: mongo-storage
               mountPath: /data/db
 
       volumes:
-        - name: mongodb-storage
+        - name: mongo-storage
           persistentVolumeClaim:
-            claimName: mongodb-pvc
+            claimName: mongo-pvc

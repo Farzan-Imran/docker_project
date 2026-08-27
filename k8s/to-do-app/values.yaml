@@ -27,7 +27,7 @@ backend:
     targetPort: 5000
 
 
-mongodb:
+mongo:
   replicaCount: 1
 
   image:
@@ -41,4 +41,9 @@ mongodb:
     targetPort: 27017
 
   persistence:
+    size: 5Gi
+   
+    enabled: true
+    storageClass: standard
+    accessMode: ReadWriteOnce
     size: 5Gi

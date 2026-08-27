@@ -7,12 +7,12 @@ metadata:
     app: mongo
 
 spec:
-  type: {{ .Values.mongodb.service.type }}
+  type: {{ .Values.mongo.service.type }}
 
   selector:
     app: mongo
 
   ports:
-    - port: {{ .Values.mongodb.service.port }}
-      targetPort: {{ .Values.mongodb.service.targetPort }}
+    - port: {{ .Values.mongo.service.port }}
+      targetPort: {{ .Values.mongo.service.targetPort }}
       protocol: TCP
