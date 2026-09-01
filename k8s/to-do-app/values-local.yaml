@@ -3,7 +3,7 @@ frontend:
 
   image:
     repository: farzaan548/to-do-frontend
-    tag: ""
+    tag: local
     pullPolicy: IfNotPresent
 
   service:
@@ -18,7 +18,7 @@ backend:
 
   image:
     repository: farzaan548/to-do-backend
-    tag: ""
+    tag: local
     pullPolicy: IfNotPresent
 
   service:
@@ -33,7 +33,7 @@ mongo:
   image:
     repository: mongo
     tag: "7.0"
-    pullPolicy: IfNotPresent
+    
 
   service:
     type: ClusterIP
@@ -47,11 +47,3 @@ mongo:
     storageClass: standard
     accessMode: ReadWriteOnce
     size: 5Gi
-
-grafana:
-  persistence:
-    enabled: true
-    type: pvc
-    size: 5Gi
-    accessModes:
-      - ReadWriteOnce
